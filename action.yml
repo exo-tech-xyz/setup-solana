@@ -1,15 +1,15 @@
-name: 'Setup Solana'
-description: 'Install the Solana Tool Suite.'
+name: "Setup Solana"
+description: "Install the Solana Tool Suite."
 branding:
   icon: cpu
   color: purple
 inputs:
   solana-cli-version:
-    description: 'Version of Solana CLI to use'
+    description: "Version of Solana CLI to use"
     required: false
-    default: 'stable'
+    default: "stable"
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Determine Solana CLI version
       id: solana-release
@@ -49,7 +49,7 @@ runs:
         key: solana-cli-${{ runner.os }}-build-${{ steps.solana-release.outputs.install_version }}
     - name: Install Solana CLI tools
       run: |
-        sh -c "$(curl -sSfL https://release.solana.com/${{ steps.solana-release.outputs.install_version }}/install)"
+        sh -c "$(curl -sSfL https://release.anza.xyz/${{ steps.solana-release.outputs.install_version }}/install)"
       shell: bash
     - name: Update PATH
       run: echo "/home/runner/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
