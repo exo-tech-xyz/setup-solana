@@ -15,8 +15,8 @@ runs:
       id: solana-release
       run: |
         pwd
-        chmod +x ./scripts/channel-info.sh
-        output=$("./scripts/channel-info.sh")
+        chmod +x ${{ github.action_path }}/scripts/channel-info.sh
+        output=$("${{ github.action_path }}/scripts/channel-info.sh")
         read -r BETA_CHANNEL_LATEST_TAG STABLE_CHANNEL_LATEST_TAG <<< "$output"
 
         if [[ "${{ inputs.solana-cli-version }}" =~ ^[a-zA-Z] ]]; then
