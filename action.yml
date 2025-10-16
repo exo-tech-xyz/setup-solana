@@ -14,6 +14,7 @@ runs:
     - name: Determine Solana CLI version
       id: solana-release
       run: |
+        pwd
         chmod +x ./scripts/channel-info.sh
         output=$("./scripts/channel-info.sh")
         read -r BETA_CHANNEL_LATEST_TAG STABLE_CHANNEL_LATEST_TAG <<< "$output"
